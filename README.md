@@ -7,6 +7,6 @@ Images are tagged as follows:
 
  - $JAVA_VERSION
  - $JAVA_VERSIONu$JAVA_UPDATE
- - $JAVA_VERSION-$BUILD_DATE
+ - $JAVA_VERSION-$UNIX_TIMESTAMP
 
-Images without a build date appended are always the most recent.
+Images without a timestamp appended are always the most recent.

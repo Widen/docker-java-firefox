@@ -1,0 +1,23 @@
+pipeline:
+  docker:
+    image: plugins/docker
+    email: .
+    force_tag: true
+    insecure: false
+    registry: https://quay.io
+    repo: quay.io/widen/java-firefox
+    tags:
+      - ${DRONE_BRANCH}
+      - 8-${DRONE_BUILD_CREATED}
+      - 8
+
+  slack:
+    image: plugins/slack-blame
+    channel: drone
+    failure_template: |
+      @{{ user.name }} failed to build/push the `{{ repo.name }}` image.
+    failure_username: ${DRONE_REPO_NAME}
+    mapping: { "mgoodness@gmail.com": "mgoodness" }
+    success_template: |
+      @{{ user.name }} built & pushed the `{{ repo.name }}` image.
+    success_username: ${DRONE_REPO_NAME}
