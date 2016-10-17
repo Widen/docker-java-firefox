@@ -8,8 +8,7 @@ pipeline:
     repo: quay.io/widen/java-firefox
     tags:
       - ${DRONE_BRANCH}
-      - 8-${DRONE_BUILD_CREATED}
-      - 8
+      - ${DRONE_BRANCH}-${DRONE_BUILD_CREATED}
 
   slack:
     image: plugins/slack-blame
